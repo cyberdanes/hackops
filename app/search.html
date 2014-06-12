@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="suntube">
+    <head>
+        <meta charset="utf-8" />
+        <link  href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link  href="../bower_components/jquery-ui/themes/eggplant/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <link  href="styles/styles.css" rel="stylesheet" type="text/css" />
+        <title>My Video Site</title>
+    </head>
+    <body ng-cloak>
+    <div data-st-banner></div>
+    <div id="home" style="margin-top: 80px;" ng-controller="searchController">
+    	<div data-st-navigator data-st-on-search="searchDataLoaded"></div>
+    	<section id="body" class="container">
+            <div id="search-title" class="page-header">
+                <h3>{{searchText}}</h3>
+            </div>
+            <div id="video-content" ng-show="videoClicked" class="row">
+                <div class="col-sm-7 col-md-9" style="margin-botton: 60px">
+                    <div style="padding: 10px">
+                        <h4><p>{{video.videotitle}}</p></h4>
+                    </div>
+                    <div style="cursor: pointer">
+                        <video vg-src="sources" height="500px" controls autoplay></video>
+                        <div class="caption">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 50px">
+            </div>
+            <div id="search-results" class="row">
+                 <div ng-repeat="video in videos" class="col-sm-6 col-md-4">
+                    <div class="thumbnail" style="cursor: pointer">
+                        <video vg-src="sources" ng-click="click($event)" preload='none' controls></video>
+                        <div class="caption">
+                            <p>{{video.videotitle}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    	</section>
+    </div>
+     
+	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/directives/directives.js"></script>
+    <script type="text/javascript" src="scripts/controllers/controller.js"></script>
+    <script type="text/javascript" src="scripts/services/services.js"></script>
+    </body>
+</html>

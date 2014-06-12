@@ -1,0 +1,4 @@
+{
+   "proxy":"http://proxy2021.scansafe.net:8080",
+   "https-proxy":"http://proxy2021.scansafe.net:8080"
+}
